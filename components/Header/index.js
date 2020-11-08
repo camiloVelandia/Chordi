@@ -1,19 +1,29 @@
 import React from 'react';
 import { Head, Logo, Nav, Search } from "./styles";
+import Link from "next/link";
 
 const Header = () => {
   return (
     <Head>
       <Logo>
-        <img src="" alt="" />
+        <Link href="/">
+          <a>
+            <img src="./images/chordi.png" alt="" />
+          </a>
+        </Link>
       </Logo>
       <Nav>
         <ul>
           <li>
-            <a href="">canciones</a>
+            <Link href="/canciones">
+              
+              <a> Lyrics </a>
+            </Link>
           </li>
           <li>
-            <a href="">acordes</a>
+            <Link href="/acordes">
+              <a>acordes</a>
+            </Link>
           </li>
         </ul>
       </Nav>

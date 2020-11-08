@@ -8,9 +8,9 @@ import styled from "styled-components";
  export const Logo = styled.figure`
    width: 15%;
    & img{
-   background-color: var(--second-color);
-     width:100px;
-     height:30px;
+     width:110px;
+     height:40px;
+     object-fit:cover
    }
  `;
  export const Nav = styled.nav`
@@ -33,14 +33,18 @@ import styled from "styled-components";
 
    & input[type="text"] {
      width: 60%;
-     border:none;
-     text-transform:capitalize;
-     padding-left:8px;
+     border: none;
+     text-transform: capitalize;
+     padding-left: 8px;
    }
    & input[type="submit"] {
      width: 10%;
      background-color: var(--brand-color);
-     border:none;
-
+     border: none;
+     cursor: pointer;
+     background-image: url("./images/lupas.svg");
+     background-size: 17px;
+     background-repeat: no-repeat;
+     background-position: center;
    }
  `;

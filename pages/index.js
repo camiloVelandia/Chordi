@@ -1,14 +1,12 @@
 import React from 'react';
-import Header from '../components/Header'
-import GlobalStyle from './../GlobalStyles';
+import List from '@components/List'
+
 
 const index = () => {
   return (
-    <div>
-    <GlobalStyle/>
-    <Header/>
-      
-    </div>
+    <>
+    <List/>
+    </>
   );
 };
 
