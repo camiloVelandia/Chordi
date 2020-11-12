@@ -8,10 +8,15 @@ export const Foot = styled.footer`
   text-align: center;
   justify-content: center;
   padding: 40px 0;
-  margin-top:60px;
+  margin-top: 60px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  clear: both;
   & a {
     color: var(--white-color);
-    padding-left:5px;
-    text-decoration:none
+    padding-left: 5px;
+    text-decoration: none;
   }
 `;

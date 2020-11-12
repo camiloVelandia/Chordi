@@ -1,30 +1,66 @@
 import React,{useState, useEffect} from 'react';
+import { Form, Head, Result, Smaller, Error } from "./styles";
+import Spinner from "@components/Spinner";
 
 const Canciones = () => {
-  const artist='juanes'
-  const cancion='la paga'
-  const API = `https://api.lyrics.ovh/v1/${artist}/${cancion}`;
+  
   const [letras, setLetras] = useState({})
+  const [formArtist, setFormArtist] = useState("juanes");
+  const [formSong, setFormSong] = useState("la paga");
+  const [loading, setLoading] = useState(false);
+  const API = `https://api.lyrics.ovh/v1/${formArtist}/${formSong}`;
 
     useEffect(() => {
+      setLoading(true)
+      traerLetra()
+      setLoading(false);
+    }, []);
+
+    const traerLetra=()=>{
       window
         .fetch(`${API}`)
         .then((response) => response.json())
         .then((data) => {
-          // setLetras(data);
-          
+          setLetras(data);
+          console.log(data);
         });
-    }, []);
+    }
+
+  const handlesubmit=(e)=>{
+    e.preventDefault();
+    traerLetra()
+    return(
+      <div>hola</div>
+    )
+  }
+
+  const handleChange=(e)=>{
+    setFormArtist(e.target.value)
+  }
+  const handleChange2=(e)=>{
+    setFormSong(e.target.value)
+  }
+  
+  
+  
   return (
     <div>
-      <h1>busca con el nombre de tu artista y el nombre de la cancion</h1>
-      <form>
-        <input type='text' placeholder='artista' />
-        <input type='text' placeholder='cancion' />
-        <input type="submit" />
-      </form>
+      <Head>busca con el nombre de tu artista y el nombre de la cancion</Head>
+      <Form onSubmit={handlesubmit}>
+        <input type="text" placeholder="artista" onChange={handleChange} />
+        <input type="text" placeholder="cancion" onChange={handleChange2} />
+        <input type="submit" value="buscar" />
+      </Form>
+      <Result>
+        <h2>resultados para: {formSong}</h2>
+        <h3>{formArtist}</h3>
+
+      <div>{ loading ? <Spinner /> : ''}</div>
+      <div>{letras.lyrics ? letras.lyrics : <Error>no se ha encontrado letra :( </Error>}  </div>
+      </Result>
+      <Smaller>Letra powered by Lyrics.ovh</Smaller>
     </div>
-  )
+  );
 }
 
 export default Canciones;

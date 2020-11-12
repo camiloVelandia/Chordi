@@ -2,9 +2,6 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/canciones": "pages/canciones.js",
   "/": "pages/index.js",
-  "/acordes/[id]": "pages/acordes/[id].js",
-  "/letra/[artist]/[name]": "pages/letra/[artist]/[name].js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/canciones": "pages/canciones.js"
 }

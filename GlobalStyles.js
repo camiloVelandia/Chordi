@@ -53,6 +53,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background-color:#f8f8f8;
+  height:100%;
 }
 main {
   display: block;
